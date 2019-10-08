@@ -1,0 +1,85 @@
+body, html {
+    width : 100%;
+    height : 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    padding: 0px;
+    margin: 0;
+}
+#takvim {
+    width : calc(100% - 20px);
+    height: calc(100% - 20px);
+    padding: 10px;
+}
+#takvim table {
+    border-collapse: collapse;
+    width : 100%;
+    height : 100%;
+    
+    
+    background-color: #C6E0B4;
+}
+
+#takvim table, th, td {
+    border: 1px solid #000000;
+    padding: 0;
+    margin: 0;
+}
+
+#takvim table tr {
+     
+}
+
+#takvim table tr th {
+    width: 14%;
+    height: 1em;
+    font-weight: normal;
+    text-align: center;
+    background-color: #BDD7EE;  
+}
+
+#takvim table tr td {
+    height: calc(20vh - 1em);
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+
+}
+
+#takvim table tr td:last-child {
+    overflow: hidden;
+}
+#takvim table tr td span {
+    font-weight: bold;
+    background-color:#4472C4;
+    color:#ffffff;
+    width: 100%;
+    display: inline-block;
+    padding:10px 0px 10px 10px;
+    position: absolute;
+    top:10px;
+    left:0px;
+    margin-bottom:5px;
+    text-align: left;
+}
+#takvim table tr td .basladi{
+    
+}
+#takvim table tr td .bitti{
+    width: 90%;
+}
+#takvim table tr td .arada{
+    display: block;
+    position: relative;
+}
+#takvim table tr td .basladibitti{
+    width: 90%;
+    display: block;
+    position: relative;
+}
+
+#takvim table tr td .gun{
+    position: absolute;
+    bottom:0px;
+    left:50%;
+}
