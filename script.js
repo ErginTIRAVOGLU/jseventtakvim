@@ -36,7 +36,9 @@ var getDates = function(startDate, endDate) {
 };
 
 var eventBas = function (tarih){
-    var durum = false;
+ 
+    var span,div;
+    
     var degiskenTarih=document.createElement("td");
      
     data.forEach(event => {
@@ -44,42 +46,55 @@ var eventBas = function (tarih){
         {
             if((new Date(tarih).getTime() > new Date(event.date).getTime()) && (new Date(tarih).getTime() < new Date(event.enddate).getTime()))
             {
-                durum = true;  
-                degiskenTarih.innerHTML = degiskenTarih.innerHTML +"<span class=\"arada\"> &nbsp; </span>";
+             
+                span = document.createElement("span")
+                span.className = "arada";
+                span.innerHTML = "&nbsp;";
+                degiskenTarih.appendChild(span);
             }            
             else if (new Date(tarih).getTime() == new Date(event.enddate).getTime())
             {
-                durum = true;  
-                degiskenTarih.innerHTML = degiskenTarih.innerHTML +"<span class=\"bitti\"> "+event.title+" </span>";
+              
+                span = document.createElement("span")
+                span.className = "bitti";
+                span.innerHTML = event.title;
+                degiskenTarih.appendChild(span);
+                
             }
             else if(new Date(tarih).getTime() == new Date(event.date).getTime())
             {
-                durum = true;  
-                degiskenTarih.innerHTML = degiskenTarih.innerHTML +"<span class=\"basladi\"> "+event.title+" </span>";
+              
+                span = document.createElement("span")
+                span.className = "basladi";
+                span.innerHTML = event.title;
+                degiskenTarih.appendChild(span);
+                
             }
         }
         else
         {            
             if(new Date(tarih).getTime() == new Date(event.date).getTime())
             {
-                durum = true;  
-                degiskenTarih.innerHTML = degiskenTarih.innerHTML +"<span class=\"basladibitti\"> "+event.title+" </span>";
+              
+                span = document.createElement("span")
+                span.className = "basladibitti";
+                span.innerHTML = event.title;
+                degiskenTarih.appendChild(span);
+                
             }
         }
        
     });
-    
-    if(!durum)
-    {
-        degiskenTarih.innerHTML ="<div class=\"gun\">"+ new Date(tarih).getDate()+"</div>";
-    }
-    else
-    {
-        degiskenTarih.innerHTML = degiskenTarih.innerHTML +"<div class=\"gun\">"+  new Date(tarih).getDate()+"</div>";
-    }
+
+    div = document.createElement("div")
+    div.className = "gun";
+    div.innerHTML = new Date(tarih).getDate();
+    degiskenTarih.appendChild(div);
+
 
     return degiskenTarih;
 }
+
 var takvimTable = document.createElement("table");
 var takvimHRow = document.createElement("tr");
 var veri = "";
